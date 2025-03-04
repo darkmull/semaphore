@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: pos
   gather_facts: false
   become: false
   vars:
