@@ -2,9 +2,10 @@
 - hosts: all
   tasks:
     - name: Copiar archivos a los pos
-      copy:
-        src:  /mnt/demo.txt
+      ansible.builtin.copy:
+        src: /mnt/demo.txt
         dest: /root/demo.txt
-        owner: root
-        group: root
+        owner: reg
+        group: users
         mode: '0644'
+        
