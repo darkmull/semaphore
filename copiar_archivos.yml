@@ -5,10 +5,10 @@
     ansible_python_interpreter: /usr/bin/python3
   tasks:
     - name: Copiar archivos a los pos
-      ansible.builtin.copy:
+      copy:
         src: /mnt/demo.txt
         dest: /root/demo.txt
-        owner: reg
-        group: users
-        mode: '0644'
+        # owner: reg
+        # group: users
+        # mode: '0644'
         
