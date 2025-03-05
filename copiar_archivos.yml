@@ -10,7 +10,7 @@
     - name: Copiar archivos a los pos
       copy:
         src: /mnt/demo.txt
-        dest: /root/demo.txt
+        dest: /tmp/demo.txt
         # owner: reg
         # group: users
         # mode: '0644'
