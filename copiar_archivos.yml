@@ -1,6 +1,6 @@
 ---
 - name: Pruebas
-  hosts: pos
+  hosts: all
   gather_facts: false
   become: false
   vars:
