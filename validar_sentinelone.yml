@@ -1,0 +1,21 @@
+---
+- name: Validar instalación de SentinelOne
+  hosts: all
+  become: yes
+  gather_facts: no
+
+  tasks:
+    - name: Verificar si SentinelOne está instalado (sentinelctl)
+      ansible.builtin.stat:
+        path: /opt/sentinelone/bin/sentinelctl
+      register: sentinelctl_bin
+
+    - name: Fallar si SentinelOne no está instalado
+      ansible.builtin.fail:
+        msg: "❌ SentinelOne NO está instalado en {{ inventory_hostname }}"
+      when: not sentinelctl_bin.stat.exists
+
+    - name: Confirmar instalación
+      ansible.builtin.debug:
+        msg: "✅ SentinelOne está instalado en {{ inventory_hostname }}"
+      when: sentinelctl_bin.stat.exists
