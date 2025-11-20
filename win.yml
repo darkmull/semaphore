@@ -2,10 +2,12 @@
 - name: Windows Update
   hosts: all
   gather_facts: false
+  
   tasks:
     - name: Running Windows Update
-      win_update:
-        category_name: ['Updates']
+      ansible.windows.win_updates:
+        category_names:
+          - SecurityUpdates
       register: result
 
     - debug: var=result
